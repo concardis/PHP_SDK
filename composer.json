@@ -1,0 +1,34 @@
+{
+  "name": "payengine/php_sdk",
+  "type":"Library",
+  "description": "PHP Library for Concardis PayEngine 3.0",
+  "keywords":["concardis", "payengine", "payment", "provider", "service", "ecommerce"],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "homepage": "https://www.concardis.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Concardis GmbH",
+      "homepage": "https://www.concardis.com/"
+    }
+  ],
+  "require": {
+    "curl/curl": "1.6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.7.19",
+    "sebastian/version": "1.0.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Concardis\\Payengine\\Lib\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Concardis\\Payengine\\Lib\\Test\\": "tests/"
+    }
+  }
+
+}

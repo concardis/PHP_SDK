@@ -1,0 +1,21 @@
+<phpunit>
+    <testsuites>
+        <testsuite name="UnitTest">
+            <directory>tests</directory>
+            <exclude>
+                <file suffix=".php" >tests/Concardis/Payengine/Lib/Test/IntegrationTest.php</file>
+            </exclude>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">Lib</directory>
+            <exclude>
+                <directory suffix=".php">tests</directory>
+                <directory suffix=".php">src/Concardis/Payengine/Lib/Models/Request</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
+

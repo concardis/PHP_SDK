@@ -1,0 +1,11 @@
+<?php
+
+namespace Concardis\Payengine\Lib\Test;
+
+class IntegrationTestConfig
+{
+    const TEST_CONFIG_MERCHANT_ID = '';
+    const TEST_CONFIG_API_KEY = '';
+    const TEST_CONFIG_LIVE_MODE = false;
+    const TEST_CONFIG_API_ENDPOINT = 'https://apitest.payengine.de/v1';
+}
