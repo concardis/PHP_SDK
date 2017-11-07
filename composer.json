@@ -22,13 +22,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Concardis\\Payengine\\Lib\\": "src/"
+      "Concardis\\Payengine\\Lib\\": "src/Concardis/Payengine/Lib"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Concardis\\Payengine\\Lib\\Test\\": "tests/"
+      "Concardis\\Payengine\\Lib\\Test\\": "tests/Concardis/Payengine/Lib/Test"
     }
   }
-
 }
