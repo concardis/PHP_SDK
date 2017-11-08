@@ -4,17 +4,18 @@ namespace Concardis\Payengine\Lib\Models\Request\AbstractClass;
 
 
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
+use Concardis\Payengine\Lib\Internal\Util\DateTimeHelper;
 
 class AbstractOrder extends AbstractModel
 {
 
     /**
-     * @var \DateTime
+     * @var integer
      */
     protected $terms;
 
     /**
-     * @var \DateTime
+     * @var integer
      */
     protected $privacy;
 
@@ -84,7 +85,7 @@ class AbstractOrder extends AbstractModel
     protected $source;
 
     /**
-     * @return \DateTime
+     * @return mixed
      */
     public function getTerms()
     {
@@ -92,15 +93,22 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @param \DateTime $terms
+     * $terms can be one of these types:
+     * DateTime, integer, float, string
+     *
+     * Unless it is DateTime, it has to be a valid Timestamp
+     *
+     * @param mixed $terms
      */
     public function setTerms($terms)
     {
-        $this->terms = $terms;
+        $dateTime = DateTimeHelper::convertNumericToDateTime($terms);
+
+        $this->terms = DateTimeHelper::getMillisecondFromDateTime($dateTime);
     }
 
     /**
-     * @return \DateTime
+     * @return mixed
      */
     public function getPrivacy()
     {
@@ -108,11 +116,17 @@ class AbstractOrder extends AbstractModel
     }
 
     /**
-     * @param \DateTime $privacy
+     * $privacy can be one of these types:
+     * DateTime, integer, float, string
+     *
+     * Unless it is DateTime, it has to be a valid Timestamp
+     * @param mixed $privacy
      */
     public function setPrivacy($privacy)
     {
-        $this->privacy = $privacy;
+        $dateTime = DateTimeHelper::convertNumericToDateTime($privacy);
+
+        $this->privacy = DateTimeHelper::getMillisecondFromDateTime($dateTime);
     }
 
     /**

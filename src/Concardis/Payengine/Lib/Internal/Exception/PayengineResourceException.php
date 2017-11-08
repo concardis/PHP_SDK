@@ -120,7 +120,7 @@ class PayengineResourceException extends \Exception
      * @return array
      */
     public function getResponseHeader() {
-        return $responseHeader;
+        return $this->responseHeader;
     }
 
     /**

@@ -12,4 +12,5 @@ class Products
     const RATEPAY_DIRECTDEBIT = "ratepay-directdebit";
     const RATEPAY_INSTALLMENT = "ratepay-installment";
     const SEPA = "sepa";
+    const SOFORT = "sofort";
 }

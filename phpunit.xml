@@ -10,10 +10,10 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">Lib</directory>
+            <directory suffix=".php">src/Concardis/Payengine/Lib</directory>
             <exclude>
                 <directory suffix=".php">tests</directory>
-                <directory suffix=".php">src/Concardis/Payengine/Lib/Models/Request</directory>
+
             </exclude>
         </whitelist>
     </filter>
