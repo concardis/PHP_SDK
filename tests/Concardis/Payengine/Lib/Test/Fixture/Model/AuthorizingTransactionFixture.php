@@ -8,6 +8,10 @@ use Concardis\Payengine\Lib\Models\Request\Orders\Async;
 
 class AuthorizingTransactionFixture
 {
+
+    /**
+     * @return RequestModel
+     */
     public static function getRequest() {
         $async = new Async();
         $async->setCancelUrl('http://cancel.url');

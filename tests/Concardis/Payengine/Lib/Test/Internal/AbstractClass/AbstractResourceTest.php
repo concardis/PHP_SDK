@@ -5,6 +5,8 @@ namespace Concardis\Payengine\Lib\Test\Internal\AbstractClass;
 require_once __DIR__ . "/../../../../../../../autoload.php";
 
 use Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
+use Concardis\Payengine\Lib\Internal\Connection\Connection;
+use Concardis\Payengine\Lib\Internal\Resource\Customers;
 use Concardis\Payengine\Lib\PayEngine;
 use PHPUnit\Framework\TestCase;
 
@@ -21,7 +23,6 @@ class AbstractResourceTest extends TestCase
 
     public function setup(){
         $this->payengine = new PayEngine(new MerchantConfiguration());
-
     }
 
     /**
@@ -30,6 +31,14 @@ class AbstractResourceTest extends TestCase
      */
     public function emptyFilterArrayTest_should_fail(){
         $this->payengine->paymentinstruments()->get(array());
+    }
+
+    /**
+     * @test
+     * @expectedException \Exception
+     */
+    public function invalidResourceId_should_fail(){
+        $this->payengine->paymentinstruments(1);
     }
 
     /**

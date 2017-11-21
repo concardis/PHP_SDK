@@ -12,6 +12,9 @@ use Concardis\Payengine\Lib\Models\Request\Order as RequestModel;
 class OrderFixture
 {
 
+    /**
+     * @return ResponseModel
+     */
     public static function getResponse(){
         $order = new ResponseModel();
         $order->setCreatedAt(123456789);

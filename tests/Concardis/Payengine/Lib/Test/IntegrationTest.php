@@ -13,6 +13,7 @@ use \Concardis\Payengine\Lib\Test\Fixture\Model\CustomerFixture;
 use \PHPUnit\Framework\TestCase;
 
 /**
+ * @codeCoverageIgnore
  * @group integrationtests
  */
 class IntegrationTest extends TestCase

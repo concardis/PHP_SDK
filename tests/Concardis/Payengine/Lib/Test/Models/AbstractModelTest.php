@@ -3,7 +3,6 @@ namespace Concardis\Payengine\Lib\Test\Models;
 
 require_once __DIR__ . "/../../../../../../autoload.php";
 
-use Concardis\Payengine\Lib\Models\Request\Orders\AuthorizingTransaction;
 use Concardis\Payengine\Lib\Test\Fixture\Model\PaymentInstrumentFixture;
 use Concardis\Payengine\Lib\Models\Response\PaymentInstrument;
 use Concardis\Payengine\Lib\Test\Fixture\Model\AuthorizingTransactionFixture;
@@ -11,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class AbstractModelTest
+ *
  * @package Concardis\Payengine\Lib\Test\Models
  */
 class AbstractModelTest extends TestCase

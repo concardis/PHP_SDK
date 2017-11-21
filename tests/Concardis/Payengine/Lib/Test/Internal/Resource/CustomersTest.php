@@ -78,6 +78,9 @@ class CustomersTest extends TestCase
                 '{"email":"postcustomerresourceexceptiontest@testemail.io","merchantCustomerId":"customer_postcustomerresourceexceptiontest"}', 
                 $e->getPayload()
             );
+            $this->assertEquals('', $e->getRequestHeaders());
+            $this->assertEquals('', $e->getResponseHeader());
+            $this->assertEquals('', $e->getResponseBody());
         }
     }
 

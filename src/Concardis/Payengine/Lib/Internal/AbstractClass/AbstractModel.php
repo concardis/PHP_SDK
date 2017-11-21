@@ -49,7 +49,7 @@ abstract class AbstractModel
                 $data = $this->{$method}();
             }
 
-            if (is_null($data)) {
+            if (is_null($data) || is_string($data) && empty($data)) {
                 continue;
             }
 

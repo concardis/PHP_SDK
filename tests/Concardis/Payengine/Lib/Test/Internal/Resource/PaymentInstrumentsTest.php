@@ -5,6 +5,7 @@ require_once __DIR__ . "/../../../../../../../autoload.php";
 
 use Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
 use Concardis\Payengine\Lib\Internal\Connection\Connection;
+use Concardis\Payengine\Lib\Models\Request\PaymentInstrument;
 use Concardis\Payengine\Lib\Models\Response\ListWrapper;
 use Concardis\Payengine\Lib\PayEngine;
 use Concardis\Payengine\Lib\Test\Fixture\Model\PaymentInstrumentFixture;
@@ -57,6 +58,14 @@ class PaymentInstrumentsTest extends TestCase
      */
     public function patchTest(){
         $result = $this->payengine->paymentinstruments()->patch(array());
+        $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
+    }
+
+    /**
+     * @test
+     */
+    public function patchTest_WithModel(){
+        $result = $this->payengine->paymentinstruments()->patch(new PaymentInstrument());
         $this->assertEquals(PaymentInstrumentFixture::getResponse(), $result);
     }
 
