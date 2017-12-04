@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.1] - 2017-12-04
+### Fixed
+- Fixed [issue #5](https://github.com/concardis/PHP_SDK/issues/5)
+
 ## [1.1.0] - 2017-11-30
 ### Added
 - Added 'sofort' to the Products constant
