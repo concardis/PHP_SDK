@@ -70,5 +70,35 @@ class TransactionTest extends TestCase
         $this->assertInstanceOf('Concardis\Payengine\Lib\Models\Response\Order', $transactionFromResponse->getOrder());
     }
 
+    /**
+     * @test
+     */
+    public function fromArrayTest_WithOrderAsArray_TransactionAsId(){
+        $transaction = $this->testedClass;
+        $order = OrderFixture::getResponse();
+        $order->setTransactions(array('transaction_1234567890'));
+        $orderAsArray = OrderFixture::getResponse()->__toArray();
+        $transaction->setOrder($orderAsArray);
+        $responseFromMiddleware = $transaction->__toArray();
+
+        $this->assertArrayHasKey('description', $responseFromMiddleware);
+        $this->assertArrayHasKey('type', $responseFromMiddleware);
+        $this->assertArrayHasKey('canceledAmount', $responseFromMiddleware);
+        $this->assertArrayHasKey('transactionId', $responseFromMiddleware);
+        $this->assertArrayHasKey('currency', $responseFromMiddleware);
+        $this->assertArrayHasKey('status', $responseFromMiddleware);
+        $this->assertArrayHasKey('order', $responseFromMiddleware);
+        $this->assertArrayHasKey('basket', $responseFromMiddleware);
+        $this->assertArrayHasKey('refundedAmount', $responseFromMiddleware);
+        $this->assertArrayHasKey('capturedAmount', $responseFromMiddleware);
+        $this->assertArrayHasKey('initialAmount', $responseFromMiddleware);
+        $this->assertInternalType('array', $responseFromMiddleware['order']);
+
+        $transactionFromResponse = new Transaction();
+        $transactionFromResponse->__fromArray($responseFromMiddleware);
+
+        $this->assertInstanceOf('Concardis\Payengine\Lib\Models\Response\Order', $transactionFromResponse->getOrder());
+    }
+
 
 }

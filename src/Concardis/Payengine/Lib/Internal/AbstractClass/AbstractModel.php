@@ -97,9 +97,15 @@ abstract class AbstractModel
                 if(is_array($propertyValue)){
                     if (!ArrayHelper::isAssocArray($propertyValue)) {
                         $convertedData = array();
+
                         foreach ($propertyValue as $key => $value) {
-                            $convertedData[$key] = $this->getSubmodel($propertyName,
-                                $value);
+                            //if transactions contains a list of ids
+                            if(is_string($value)){
+                                $convertedData[$key] = $value;
+                                continue;
+                            }elseif(is_array($value)){
+                                $convertedData[$key] = $this->getSubmodel($propertyName, $value);
+                            }
                         }
                         $data = $convertedData;
                     } else {
