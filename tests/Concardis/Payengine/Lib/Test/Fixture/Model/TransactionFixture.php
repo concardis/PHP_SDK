@@ -34,6 +34,7 @@ class TransactionFixture
         $transaction->setCurrency("EUR");
         $transaction->setCapturedAmount(12345);
         $transaction->setCanceledAmount(12345);
+        $transaction->setProviderCode("00");
         return $transaction;
 
     }
@@ -56,6 +57,7 @@ class TransactionFixture
         $transaction->setCurrency("EUR");
         $transaction->setCapturedAmount(12345);
         $transaction->setCanceledAmount(12345);
+        $transaction->setProviderCode("00");
         return $transaction;
     }
 
