@@ -1,4 +1,4 @@
-#PHP SDK
+# PHP SDK
 
 ## Prerequisites
 ### PHP
@@ -6,6 +6,13 @@ Get and install PHP for your system. <http://php.net/manual/en/install.php>
 ### Composer
 Get and install composer for your system. <https://getcomposer.org>
 ### Get the PHP SDK
+
+#### Via Packagist.org
+
+~~~sh
+composer require payengine/php_sdk
+~~~
+
 #### By cloning
 ~~~sh
 git@github.com:concardis/PHP_SDK.git
