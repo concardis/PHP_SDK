@@ -82,6 +82,11 @@ class Transaction extends AbstractResponseModel
     private $initialAmount;
 
     /**
+     * @var string
+     */
+    private $providerCode;
+
+    /**
      * @return string
      */
     public function getType()
@@ -289,5 +294,20 @@ class Transaction extends AbstractResponseModel
         $this->initialAmount = $initialAmount;
     }
 
+    /**
+     * @return string
+     */
+    public function getProviderCode()
+    {
+        return $this->providerCode;
+    }
+
+    /**
+     * @param string $providerCode
+     */
+    public function setProviderCode($providerCode)
+    {
+        $this->providerCode = $providerCode;
+    }
 
 }
