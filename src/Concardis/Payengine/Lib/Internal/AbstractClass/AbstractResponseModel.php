@@ -15,6 +15,11 @@ abstract class AbstractResponseModel extends AbstractModel
      * @var integer
      */
     protected $modifiedAt;
+    
+	/**
+	 * @var array
+	 */
+	protected $errors;
 
     /**
      * @return int
@@ -48,5 +53,20 @@ abstract class AbstractResponseModel extends AbstractModel
         $this->modifiedAt = $modifiedAt;
     }
 
+	/**
+	 * @return array
+	 */
+	public function getErrors()
+	{
+		return $this->errors ? $this->errors : [];
+	}
+
+	/**
+	 * @param array $errors
+	 */
+	public function setErrors($errors)
+	{
+		$this->errors = $errors;
+	}
 
 }
