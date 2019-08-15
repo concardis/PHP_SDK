@@ -22,7 +22,7 @@ class Api
     const RESOURCE_CUSTOMERS_PAYMENTINSTRUMENTS = "/payment-instruments";
 
     const RESOURCE_PAYMENTINSTRUMENT = "/payment-instruments";
-	const RESOURCE_PAYMENTINSTRUMENT_3DSVERSION = "/3ds-version";
+    const RESOURCE_PAYMENTINSTRUMENT_3DSVERSION = "/3ds-version";
 
-	const RESOURCE_BROWSER_INFO = "/browser-info";
+    const RESOURCE_BROWSER_INFO = "/browser-info";
 }
