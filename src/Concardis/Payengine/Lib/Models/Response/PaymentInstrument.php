@@ -3,115 +3,109 @@
 namespace Concardis\Payengine\Lib\Models\Response;
 
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
+use Concardis\Payengine\Lib\Models\Response\PaymentInstrument\Attributes;
 
+class PaymentInstrument extends AbstractResponseModel {
 
-class PaymentInstrument extends AbstractResponseModel
-{
+	const CLASSNAME = __CLASS__;
 
-    /**
-     * @var string
-     */
-    private $paymentInstrumentId;
+	protected $subModels = [
+		'attributes' => Attributes::CLASSNAME,
+	];
 
-    /**
-     * @var  string
-     */
-    private $merchantPaymentInstrumentId;
+	/**
+	 * @var string
+	 */
+	private $paymentInstrumentId;
 
-    /**
-     * @var string
-     */
-    private $product;
+	/**
+	 * @var  string
+	 */
+	private $merchantPaymentInstrumentId;
 
-    /**
-     * @var boolean
-     */
-    private $recurring;
+	/**
+	 * @var string
+	 */
+	private $product;
 
-    /**
-     * @var array
-     */
-    private $attributes;
+	/**
+	 * @var boolean
+	 */
+	private $recurring;
 
-    /**
-     * @return string
-     */
-    public function getPaymentInstrumentId()
-    {
-        return $this->paymentInstrumentId;
-    }
+	/**
+	 * @var array
+	 */
+	private $attributes;
 
-    /**
-     * @param string $paymentInstrumentId
-     */
-    public function setPaymentInstrumentId($paymentInstrumentId)
-    {
-        $this->paymentInstrumentId = $paymentInstrumentId;
-    }
+	/**
+	 * @return string
+	 */
+	public function getPaymentInstrumentId() {
+		return $this->paymentInstrumentId;
+	}
 
-    /**
-     * @return string
-     */
-    public function getMerchantPaymentInstrumentId()
-    {
-        return $this->merchantPaymentInstrumentId;
-    }
+	/**
+	 * @param string $paymentInstrumentId
+	 */
+	public function setPaymentInstrumentId($paymentInstrumentId) {
+		$this->paymentInstrumentId = $paymentInstrumentId;
+	}
 
-    /**
-     * @param string $merchantPaymentInstrumentId
-     */
-    public function setMerchantPaymentInstrumentId($merchantPaymentInstrumentId)
-    {
-        $this->merchantPaymentInstrumentId = $merchantPaymentInstrumentId;
-    }
+	/**
+	 * @return string
+	 */
+	public function getMerchantPaymentInstrumentId() {
+		return $this->merchantPaymentInstrumentId;
+	}
 
-    /**
-     * @return string
-     */
-    public function getProduct()
-    {
-        return $this->product;
-    }
+	/**
+	 * @param string $merchantPaymentInstrumentId
+	 */
+	public function setMerchantPaymentInstrumentId($merchantPaymentInstrumentId) {
+		$this->merchantPaymentInstrumentId = $merchantPaymentInstrumentId;
+	}
 
-    /**
-     * @param string $product
-     */
-    public function setProduct($product)
-    {
-        $this->product = $product;
-    }
+	/**
+	 * @return string
+	 */
+	public function getProduct() {
+		return $this->product;
+	}
 
-    /**
-     * @return bool
-     */
-    public function isRecurring()
-    {
-        return $this->recurring;
-    }
+	/**
+	 * @param string $product
+	 */
+	public function setProduct($product) {
+		$this->product = $product;
+	}
 
-    /**
-     * @param bool $recurring
-     */
-    public function setRecurring($recurring)
-    {
-        $this->recurring = $recurring;
-    }
+	/**
+	 * @return bool
+	 */
+	public function isRecurring() {
+		return $this->recurring;
+	}
 
-    /**
-     * @return array
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+	/**
+	 * @param bool $recurring
+	 */
+	public function setRecurring($recurring) {
+		$this->recurring = $recurring;
+	}
 
-    /**
-     * @param array $attributes
-     */
-    public function setAttributes($attributes)
-    {
-        $this->attributes = $attributes;
-    }
+	/**
+	 * @return Attributes
+	 */
+	public function getAttributes() {
+		return $this->attributes;
+	}
 
+	/**
+	 * @param Attributes
+	 */
+	public function setAttributes($attributes) {
+		$this->attributes = $attributes;
+	}
 
 }
