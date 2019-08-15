@@ -5,6 +5,8 @@ namespace Concardis\Payengine\Lib\Models\Response\Orders;
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 
 class CredentialOnFile extends AbstractModel {
+	
+	const CLASSNAME = __CLASS__;
 
 	/**
 	 * Unique identifier for the COF contract of the payment instrument
