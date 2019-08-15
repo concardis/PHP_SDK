@@ -3,9 +3,11 @@ namespace Concardis\Payengine\Lib\Internal\Resource;
 
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResource;
 use Concardis\Payengine\Lib\Internal\Constants\Api;
+use Concardis\Payengine\Lib\Internal\Constants\ErrorCodes;
 use Concardis\Payengine\Lib\Internal\Interfaces\Getable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Patchable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Postable;
+use Concardis\Payengine\Lib\Internal\Resource\PaymentInstrument\ThreeDsVersions;
 use Concardis\Payengine\Lib\Models\Response\PaymentInstrument;
 
 class PaymentInstruments extends AbstractResource implements Postable, Getable, Patchable
@@ -53,6 +55,18 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
     {
         return parent::get($queryParams);
     }
+
+	/**
+	 * @return ThreeDsVersions
+	 * @throws \Exception
+	 */
+	public function threedsinfo(){
+		if(!isset($this->resourceId)){
+			throw new \Exception(ErrorCodes::SDK_RESOURCEID_INVALID);
+		}
+
+		return new ThreeDsVersions($this->connection, $this->resourceId, $this->resourcePathWithId);
+	}
 
     /**
      * @return PaymentInstrument
