@@ -2,186 +2,212 @@
 
 namespace Concardis\Payengine\Lib\Models\Response\Orders;
 
-
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
 
-class Meta extends AbstractResponseModel
-{
+class Meta extends AbstractResponseModel {
 
-    /**
-     * @var string
-     * relevant for RatePAY
-     */
-    private $riskIdentId;
+	const CLASSNAME = __CLASS__;
 
-    /**
-     * @var integer
-     * relevant for RatePAY Installment
-     */
-    private $totalAmount;
+	protected $subModels = [
+		'cofContract' => CredentialOnFile::CLASSNAME,
+		'threedsdata' => ThreeDsData::CLASSNAME,
+	];
 
-    /**
-     * @var integer
-     * relevant for RatePAY Installment
-     */
-    private $numberOfRates;
+	/**
+	 * @var string
+	 * relevant for RatePAY
+	 */
+	private $riskIdentId;
 
-    /**
-     * @var integer
-     * relevant for RatePAY Installment
-     */
-    private $rate;
+	/**
+	 * @var integer
+	 * relevant for RatePAY Installment
+	 */
+	private $totalAmount;
 
-    /**
-     * @var integer
-     * relevant for RatePAY Installment
-     */
-    private $lastRate;
+	/**
+	 * @var integer
+	 * relevant for RatePAY Installment
+	 */
+	private $numberOfRates;
 
-    /**
-     * @var float
-     * relevant for RatePAY Installment
-     */
-    private $interestRate;
+	/**
+	 * @var integer
+	 * relevant for RatePAY Installment
+	 */
+	private $rate;
 
-    /**
-     * @var integer
-     * relevant for RatePAY Installment
-     */
-    private $paymentFirstDay;
+	/**
+	 * @var integer
+	 * relevant for RatePAY Installment
+	 */
+	private $lastRate;
 
-    /**
-     * @var string
-     * relevant for RatePAY Installment
-     */
-    private $descriptor;
+	/**
+	 * @var float
+	 * relevant for RatePAY Installment
+	 */
+	private $interestRate;
 
-    /**
-     * @return string
-     */
-    public function getRiskIdentId()
-    {
-        return $this->riskIdentId;
-    }
+	/**
+	 * @var integer
+	 * relevant for RatePAY Installment
+	 */
+	private $paymentFirstDay;
 
-    /**
-     * @param string $riskIdentId
-     */
-    public function setRiskIdentId($riskIdentId)
-    {
-        $this->riskIdentId = $riskIdentId;
-    }
+	/**
+	 * @var string
+	 * relevant for RatePAY Installment
+	 */
+	private $descriptor;
 
-    /**
-     * @return int
-     */
-    public function getTotalAmount()
-    {
-        return $this->totalAmount;
-    }
+	/**
+	 * @var CredentialOnFile
+	 */
+	private $cofContract;
 
-    /**
-     * @param int $totalAmount
-     */
-    public function setTotalAmount($totalAmount)
-    {
-        $this->totalAmount = $totalAmount;
-    }
+	/**
+	 * @var ThreeDsData
+	 */
+	private $threeDsData;
 
-    /**
-     * @return int
-     */
-    public function getNumberOfRates()
-    {
-        return $this->numberOfRates;
-    }
+	/**
+	 * @return string
+	 */
+	public function getRiskIdentId() {
+		return $this->riskIdentId;
+	}
 
-    /**
-     * @param int $numberOfRates
-     */
-    public function setNumberOfRates($numberOfRates)
-    {
-        $this->numberOfRates = $numberOfRates;
-    }
+	/**
+	 * @param string $riskIdentId
+	 */
+	public function setRiskIdentId($riskIdentId) {
+		$this->riskIdentId = $riskIdentId;
+	}
 
-    /**
-     * @return int
-     */
-    public function getRate()
-    {
-        return $this->rate;
-    }
+	/**
+	 * @return int
+	 */
+	public function getTotalAmount() {
+		return $this->totalAmount;
+	}
 
-    /**
-     * @param int $rate
-     */
-    public function setRate($rate)
-    {
-        $this->rate = $rate;
-    }
+	/**
+	 * @param int $totalAmount
+	 */
+	public function setTotalAmount($totalAmount) {
+		$this->totalAmount = $totalAmount;
+	}
 
-    /**
-     * @return int
-     */
-    public function getLastRate()
-    {
-        return $this->lastRate;
-    }
+	/**
+	 * @return int
+	 */
+	public function getNumberOfRates() {
+		return $this->numberOfRates;
+	}
 
-    /**
-     * @param int $lastRate
-     */
-    public function setLastRate($lastRate)
-    {
-        $this->lastRate = $lastRate;
-    }
+	/**
+	 * @param int $numberOfRates
+	 */
+	public function setNumberOfRates($numberOfRates) {
+		$this->numberOfRates = $numberOfRates;
+	}
 
-    /**
-     * @return float
-     */
-    public function getInterestRate()
-    {
-        return $this->interestRate;
-    }
+	/**
+	 * @return int
+	 */
+	public function getRate() {
+		return $this->rate;
+	}
 
-    /**
-     * @param float $interestRate
-     */
-    public function setInterestRate($interestRate)
-    {
-        $this->interestRate = $interestRate;
-    }
+	/**
+	 * @param int $rate
+	 */
+	public function setRate($rate) {
+		$this->rate = $rate;
+	}
 
-    /**
-     * @return int
-     */
-    public function getPaymentFirstDay()
-    {
-        return $this->paymentFirstDay;
-    }
+	/**
+	 * @return int
+	 */
+	public function getLastRate() {
+		return $this->lastRate;
+	}
 
-    /**
-     * @param int $paymentFirstDay
-     */
-    public function setPaymentFirstDay($paymentFirstDay)
-    {
-        $this->paymentFirstDay = $paymentFirstDay;
-    }
+	/**
+	 * @param int $lastRate
+	 */
+	public function setLastRate($lastRate) {
+		$this->lastRate = $lastRate;
+	}
 
-    /**
-     * @return string
-     */
-    public function getDescriptor()
-    {
-        return $this->descriptor;
-    }
+	/**
+	 * @return float
+	 */
+	public function getInterestRate() {
+		return $this->interestRate;
+	}
 
-    /**
-     * @param string $descriptor
-     */
-    public function setDescriptor($descriptor)
-    {
-        $this->descriptor = $descriptor;
-    }
+	/**
+	 * @param float $interestRate
+	 */
+	public function setInterestRate($interestRate) {
+		$this->interestRate = $interestRate;
+	}
 
+	/**
+	 * @return int
+	 */
+	public function getPaymentFirstDay() {
+		return $this->paymentFirstDay;
+	}
+
+	/**
+	 * @param int $paymentFirstDay
+	 */
+	public function setPaymentFirstDay($paymentFirstDay) {
+		$this->paymentFirstDay = $paymentFirstDay;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescriptor() {
+		return $this->descriptor;
+	}
+
+	/**
+	 * @param string $descriptor
+	 */
+	public function setDescriptor($descriptor) {
+		$this->descriptor = $descriptor;
+	}
+
+	/**
+	 * @return CredentialOnFile
+	 */
+	public function getCofContract() {
+		return $this->cofContract;
+	}
+
+	/**
+	 * @param CredentialOnFile $cofContract
+	 */
+	public function setCofContract($cofContract) {
+		$this->cofContract = $cofContract;
+	}
+
+	/**
+	 * @return ThreeDsData
+	 */
+	public function getThreeDsData() {
+		return $this->threeDsData;
+	}
+
+	/**
+	 * @param ThreeDsData $threeDsData
+	 */
+	public function setThreeDsData($threeDsData) {
+		$this->threeDsData = $threeDsData;
+	}
 }
