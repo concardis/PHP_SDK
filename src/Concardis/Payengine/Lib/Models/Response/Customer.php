@@ -7,6 +7,8 @@ use Concardis\Payengine\Lib\Models\Response\Customers\Persona;
 
 class Customer extends AbstractResponseModel
 {
+    const CLASSNAME = __CLASS__;
+    
     /**
      * @var array
      */
