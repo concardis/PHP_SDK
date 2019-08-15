@@ -8,6 +8,7 @@ use Concardis\Payengine\Lib\Internal\Constants\Gender;
 
 class Persona extends AbstractModel
 {
+	const CLASSNAME = __CLASS__;
 
     /**
      * Firstname of this person
