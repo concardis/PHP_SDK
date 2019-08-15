@@ -9,6 +9,7 @@ use Concardis\Payengine\Lib\Models\Response\Order;
 
 class Transaction extends AbstractResponseModel
 {
+    const CLASSNAME = __CLASS__;
 
     protected $subModels = array(
         'order' => Order::class,
