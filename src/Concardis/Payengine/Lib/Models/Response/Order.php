@@ -12,6 +12,7 @@ use Concardis\Payengine\Lib\Models\Response\Orders\Meta;
 
 class Order extends AbstractResponseModel
 {
+    const CLASSNAME = __CLASS__;
 
     protected $subModels = array(
         'basket' => Item::class,
