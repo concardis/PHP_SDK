@@ -7,6 +7,8 @@ use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 
 class PaymentInstrument extends AbstractModel
 {
+    const CLASSNAME = __CLASS__;
+    
     /**
      * @var string
      */
