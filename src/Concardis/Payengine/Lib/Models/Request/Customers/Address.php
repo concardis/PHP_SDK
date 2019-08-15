@@ -7,7 +7,7 @@ use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 
 class Address extends AbstractModel
 {
-	const CLASSNAME = __CLASS__;
+    const CLASSNAME = __CLASS__;
 
     /**
      * @var string
