@@ -48,12 +48,12 @@ class AuthenticationResult extends AbstractResponseModel
 	/**
 	 * @var string
 	 */
-    private $eci;
+	private $eci;
 
 	/**
 	 * @var ErrorDetails
 	 */
-    private $errorDetails;
+	private $errorDetails;
 
 	/**
 	 * @return string
