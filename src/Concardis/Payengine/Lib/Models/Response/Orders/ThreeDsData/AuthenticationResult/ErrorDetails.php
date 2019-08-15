@@ -7,7 +7,7 @@ use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
 
 class ErrorDetails extends AbstractResponseModel
 {
-	const CLASSNAME = __CLASS__;
+    const CLASSNAME = __CLASS__;
 
     /**
      * @var string
