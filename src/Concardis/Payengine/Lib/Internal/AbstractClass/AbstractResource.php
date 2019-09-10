@@ -82,7 +82,7 @@ abstract class AbstractResource
      */
     protected function delete()
     {
-        $this->connection->delete($this->resourcePath);
+        $this->connection->delete($this->resourcePathWithId);
     }
 
     /**
