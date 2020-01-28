@@ -34,6 +34,16 @@ class PaymentInstrument extends AbstractResponseModel
     private $attributes;
 
     /**
+     * @var  string
+     */
+    private $origin;
+
+    /**
+     * @var  string
+     */
+    private $type;
+
+    /**
      * @return string
      */
     public function getPaymentInstrumentId()
@@ -113,5 +123,36 @@ class PaymentInstrument extends AbstractResponseModel
         $this->attributes = $attributes;
     }
 
+    /**
+     * @return string
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    /**
+     * @param string $origin
+     */
+    public function setOrigin($origin)
+    {
+        $this->origin = $origin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
 
 }
