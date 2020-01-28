@@ -166,7 +166,7 @@ class Connection implements ConnectionInterface
         $url = preg_replace('/(%5B[0-9]%5D)/', '', $url);
 
         $this->setDefaultHeader();
-        $this->curl->get($url, null);
+        $this->curl->get($url, array());
         if(!$this->curl->isSuccess()){
             $requestException = new PayengineResourceException(
                 $this->curl->error_message, $this->curl->http_status_code

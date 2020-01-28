@@ -103,8 +103,10 @@ abstract class AbstractResource
         if($this->resourceId == null) {
             if(is_array($filter)){
                 TypeHelper::convertBooleanValues($filter);
+                $result = $this->getAll($filter);
+            } else {
+                $result = $this->getAll();
             }
-            $result = $this->getAll($filter);
         } else {
             $result = $this->getOne();
         }
@@ -117,7 +119,7 @@ abstract class AbstractResource
      * @return ListWrapper
      * @throws \Exception
      */
-    private function getAll($filter = null){
+    private function getAll($filter = array()){
         $result = $this->connection->get($this->resourcePath, $filter);
         $listWrapper = new ListWrapper();
 
@@ -137,7 +139,7 @@ abstract class AbstractResource
      * @return AbstractResponseModel
      */
     private function getOne() {
-        $result = $this->connection->get($this->resourcePathWithId, null);
+        $result = $this->connection->get($this->resourcePathWithId);
         return $this->responseDataToModel($result);
     }
 
