@@ -57,6 +57,30 @@ class Meta extends AbstractResponseModel
     private $descriptor;
 
     /**
+     * @var string
+     * relevant for creditcard payments
+     */
+    private $threeDs;
+
+    /**
+     * @var string
+     * relevant for creditcard payments
+     */
+    private $cofContract;    
+
+    /**
+     * @var string
+     * relevant for creditcard payments
+     */
+    private $flexibleThreeDS;
+
+    /**
+     * @var object
+     * relevant for creditcard payments
+     */
+    private $threeDsData;
+    
+    /**
      * @return string
      */
     public function getRiskIdentId()
@@ -182,6 +206,72 @@ class Meta extends AbstractResponseModel
     public function setDescriptor($descriptor)
     {
         $this->descriptor = $descriptor;
+    }
+
+    
+    /**
+     * @return string
+     */
+    public function getThreeDs()
+    {
+        return $this->threeDs;
+    }
+
+    /**
+     * @param string $threeDs
+     */
+    public function setThreeDs($threeDs)
+    {
+        $this->threeDs = $threeDs;
+    }
+
+    
+    /**
+     * @return string
+     */
+    public function getFlexibleThreeDS()
+    {
+        return $this->flexibleThreeDS;
+    }
+
+    /**
+     * @param string $flexibleThreeDS
+     */
+    public function setFlexibleThreeDS($flexibleThreeDS)
+    {
+        $this->flexibleThreeDS = $flexibleThreeDS;
+    }
+
+    /**
+     * @return object
+     */
+    public function getThreeDsData()
+    {
+        return $this->threeDsData;
+    }
+
+    /**
+     * @param object $threeDsData
+     */
+    public function setThreeDsData($threeDsData)
+    {
+        $this->threeDsData = $threeDsData;
+    }
+
+        /**
+     * @return object
+     */
+    public function getCofContract()
+    {
+        return $this->cofContract;
+    }
+
+    /**
+     * @param object $cofContract
+     */
+    public function setCofContract($cofContract)
+    {
+        $this->cofContract = $cofContract;
     }
 
 }

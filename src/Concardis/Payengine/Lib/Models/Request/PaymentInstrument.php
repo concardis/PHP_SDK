@@ -6,7 +6,6 @@ use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractModel;
 
 class PaymentInstrument extends AbstractModel
 {
-
     /**
      * @var string
      */
@@ -236,6 +235,22 @@ class PaymentInstrument extends AbstractModel
     public function setBankName($bankName)
     {
         $this->bankName = $bankName;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param array $attributes
+     */
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
     }
 
 

@@ -1,4 +1,4 @@
-# PHP SDK
+#PHP SDK
 
 ## Prerequisites
 ### PHP
@@ -9,9 +9,9 @@ Get and install composer for your system. <https://getcomposer.org>
 
 #### Via Packagist.org
 
-~~~sh
-composer require payengine/php_sdk
-~~~
+#### ~~~sh
+#### composer require payengine/php_sdk
+#### ~~~
 
 #### By cloning
 ~~~sh

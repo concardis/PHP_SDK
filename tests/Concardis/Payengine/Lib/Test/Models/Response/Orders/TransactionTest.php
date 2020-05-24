@@ -39,7 +39,6 @@ class TransactionTest extends TestCase
         $this->assertArrayHasKey('refundedAmount', $modelToArray);
         $this->assertArrayHasKey('capturedAmount', $modelToArray);
         $this->assertArrayHasKey('initialAmount', $modelToArray);
-        $this->assertArrayHasKey('providerCode', $modelToArray);
 
     }
 
@@ -63,7 +62,6 @@ class TransactionTest extends TestCase
         $this->assertArrayHasKey('refundedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('capturedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('initialAmount', $responseFromMiddleware);
-        $this->assertArrayHasKey('providerCode', $responseFromMiddleware);
         $this->assertInternalType('array', $responseFromMiddleware['order']);
 
         $transactionFromResponse = new Transaction();
@@ -94,7 +92,6 @@ class TransactionTest extends TestCase
         $this->assertArrayHasKey('refundedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('capturedAmount', $responseFromMiddleware);
         $this->assertArrayHasKey('initialAmount', $responseFromMiddleware);
-        $this->assertArrayHasKey('providerCode', $responseFromMiddleware);
         $this->assertInternalType('array', $responseFromMiddleware['order']);
 
         $transactionFromResponse = new Transaction();

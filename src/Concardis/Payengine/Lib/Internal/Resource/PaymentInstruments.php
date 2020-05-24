@@ -7,6 +7,11 @@ use Concardis\Payengine\Lib\Internal\Interfaces\Getable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Patchable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Postable;
 use Concardis\Payengine\Lib\Models\Response\PaymentInstrument;
+use Concardis\Payengine\Lib\Internal\Resource\PaymentInstruments\ThreeDSVersions;
+use Concardis\Payengine\Lib\Internal\Resource\PaymentInstruments\CardChecks;
+
+use Concardis\Payengine\Lib\Models\Response\PaymentInstrument\ThreeDSVersion;
+
 
 class PaymentInstruments extends AbstractResource implements Postable, Getable, Patchable
 {
@@ -53,6 +58,31 @@ class PaymentInstruments extends AbstractResource implements Postable, Getable, 
     {
         return parent::get($queryParams);
     }
+
+
+    // /**
+    //  * @return ThreeDSVersions
+    //  */
+    // public function threeDSVersion(){
+    //     echo "test";
+    //     print("<pre>".print_r($this->connection,true)."</pre>");
+    //     print("<pre>".print_r($this->resourcePathWithId,true)."</pre>");
+    //     echo "test4". $id;
+    //     return new ThreeDSVersions($this->connection, $id, $this->resourcePathWithId);
+    // }
+
+    public function threeDSVersion($id = null){
+        return new ThreeDSVersions($this->connection, $id, $this->resourcePathWithId);
+    }
+
+
+    /**
+     * @return CardCheck
+     */
+    public function cardCheck(){
+        return new CardChecks($this->connection, null, $this->resourcePathWithId);
+    }
+
 
     /**
      * @return PaymentInstrument

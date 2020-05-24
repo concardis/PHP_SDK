@@ -23,6 +23,16 @@ class AuthorizingTransaction extends AbstractOrder
     private $async;
 
     /**
+     * @var string
+     */
+    private $transactionType;
+
+    /**
+     * @var array
+     */
+    private $meta;
+
+    /**
      * @return \Concardis\Payengine\Lib\Models\Request\Orders\Payment\Payment
      */
     public function getPayment()
@@ -70,4 +80,35 @@ class AuthorizingTransaction extends AbstractOrder
         $this->async = $async;
     }
 
+    /**
+     * @return string
+     */
+    public function getTransactionType()
+    {
+        return $this->transactionType;
+    }
+
+    /**
+     * @param string $transactionType
+     */
+    public function setTransactionType($transactionType)
+    {
+        $this->transactionType = $transactionType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeta()
+    {
+        return $this->meta;
+    }
+
+    /**
+     * @param string $meta
+     */
+    public function setMeta($meta)
+    {
+        $this->meta = $meta;
+    }
 }

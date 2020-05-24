@@ -9,6 +9,7 @@ use Concardis\Payengine\Lib\Internal\Interfaces\Patchable;
 use Concardis\Payengine\Lib\Internal\Interfaces\Postable;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Debit;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Preauth;
+use Concardis\Payengine\Lib\Internal\Resource\Orders\Intent;
 use Concardis\Payengine\Lib\Internal\Resource\Orders\Transactions;
 use Concardis\Payengine\Lib\Models\Response\Order;
 
@@ -63,6 +64,13 @@ class Orders extends AbstractResource implements Postable, Patchable, Getable
      */
     public function debit(){
         return new Debit($this->connection, null, $this->resourcePath);
+    }
+
+    /**
+     * @return Intent
+     */
+    public function intent(){
+        return new Intent($this->connection, null, $this->resourcePath);
     }
 
     /**

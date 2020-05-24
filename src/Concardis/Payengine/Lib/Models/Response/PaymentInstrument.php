@@ -3,10 +3,13 @@
 namespace Concardis\Payengine\Lib\Models\Response;
 
 use Concardis\Payengine\Lib\Internal\AbstractClass\AbstractResponseModel;
-
+use Concardis\Payengine\Lib\Models\Response\PaymentInstruments\Attributes;
 
 class PaymentInstrument extends AbstractResponseModel
 {
+    protected $subModels = array(
+        'attributes' => Attributes::class,
+    );
 
     /**
      * @var string
@@ -24,6 +27,11 @@ class PaymentInstrument extends AbstractResponseModel
     private $product;
 
     /**
+     * @var string
+     */
+    private $type;
+
+    /**
      * @var boolean
      */
     private $recurring;
@@ -34,14 +42,9 @@ class PaymentInstrument extends AbstractResponseModel
     private $attributes;
 
     /**
-     * @var  string
+     * @var boolean
      */
-    private $origin;
-
-    /**
-     * @var  string
-     */
-    private $type;
+    private $cofContract; 
 
     /**
      * @return string
@@ -92,6 +95,22 @@ class PaymentInstrument extends AbstractResponseModel
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $product
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @return bool
      */
     public function isRecurring()
@@ -106,7 +125,6 @@ class PaymentInstrument extends AbstractResponseModel
     {
         $this->recurring = $recurring;
     }
-
     /**
      * @return array
      */
@@ -122,37 +140,22 @@ class PaymentInstrument extends AbstractResponseModel
     {
         $this->attributes = $attributes;
     }
-
+    
     /**
-     * @return string
+     * @return array
      */
-    public function getOrigin()
+    public function getCofContract()
     {
-        return $this->origin;
+        return $this->cofContract;
     }
 
     /**
-     * @param string $origin
+     * @param array $attributes
      */
-    public function setOrigin($origin)
+    public function setCofContract($cofContract)
     {
-        $this->origin = $origin;
+        $this->cofContract = $cofContract;
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
 
 }

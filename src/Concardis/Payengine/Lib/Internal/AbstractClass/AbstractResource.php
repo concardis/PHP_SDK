@@ -54,12 +54,41 @@ abstract class AbstractResource
      */
     protected function post($data)
     {
+        //  echo '<br>' .'AbstractResource::post()' . '<br>';
+        //    print("<pre>".print_r($data,true)."</pre>");
+
+        // $flag = ($data instanceof AbstractModel);
+        //  echo $flag;
         if($data instanceof AbstractModel) {
             $data = $data->__toArray();
         }
+        // echo $this->resourcePath . '<br>';
+        // print("<pre>".print_r($data,true)."</pre>");
 
-        $result = $this->connection->post($this->resourcePath, $data);
-        return $this->responseDataToModel($result);
+        try{
+
+            $result = $this->connection->post($this->resourcePath, $data);
+
+        } catch (PayengineResourceException $e) {
+            print("<pre>".print_r($e->getResponseHeader(),true)."</pre>");
+            print("<pre>".print_r($e->getResponseBody(),true)."</pre>");
+            print("<pre>".print_r($e->getPayload(),true)."</pre>");
+            throw $e;
+        }
+        catch (Exception $e) {
+            print("<pre>".print_r($e,true)."</pre>");
+        }
+       
+        if($result != null) {
+            //   echo 'AbstractResponseresult';
+            //   print("<pre>".print_r($result,true)."</pre>");
+         
+
+            $model = $this->responseDataToModel($result);
+            // print("<pre>".print_r($model,true)."</pre>");
+            return $model;
+        }
+        return $result;
     }
 
     /**
@@ -82,7 +111,7 @@ abstract class AbstractResource
      */
     protected function delete()
     {
-        $this->connection->delete($this->resourcePathWithId);
+        $this->connection->delete($this->resourcePath);
     }
 
     /**
@@ -103,10 +132,8 @@ abstract class AbstractResource
         if($this->resourceId == null) {
             if(is_array($filter)){
                 TypeHelper::convertBooleanValues($filter);
-                $result = $this->getAll($filter);
-            } else {
-                $result = $this->getAll();
             }
+            $result = $this->getAll($filter);
         } else {
             $result = $this->getOne();
         }
@@ -119,7 +146,7 @@ abstract class AbstractResource
      * @return ListWrapper
      * @throws \Exception
      */
-    private function getAll($filter = array()){
+    private function getAll($filter = null){
         $result = $this->connection->get($this->resourcePath, $filter);
         $listWrapper = new ListWrapper();
 
@@ -139,7 +166,7 @@ abstract class AbstractResource
      * @return AbstractResponseModel
      */
     private function getOne() {
-        $result = $this->connection->get($this->resourcePathWithId);
+        $result = $this->connection->get($this->resourcePathWithId, null);
         return $this->responseDataToModel($result);
     }
 

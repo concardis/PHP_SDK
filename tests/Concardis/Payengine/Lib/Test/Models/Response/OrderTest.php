@@ -145,7 +145,6 @@ class OrderTest extends TestCase
             $this->assertArrayHasKey('refundedAmount', $transaction);
             $this->assertArrayHasKey('capturedAmount', $transaction);
             $this->assertArrayHasKey('initialAmount', $transaction);
-            $this->assertArrayHasKey('providerCode', $transaction);
         }
     }
 

@@ -20,7 +20,10 @@ class Preauth extends AbstractResource implements Postable
         /**
          * @var $result Order
          */
+        // file_put_contents(TL_ROOT ."/var/logs/register.log", "PreauthAbstractResourceData:". print_r($data,true) ."\r\n", FILE_APPEND | LOCK_EX);
         $result = parent::post($data);
+
+        // file_put_contents(TL_ROOT ."/var/logs/register.log", "PreauthAbstractResourceResult:". print_r($result,true) ."\r\n", FILE_APPEND | LOCK_EX);
 
         return $result;
     }

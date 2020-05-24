@@ -301,7 +301,6 @@ class Transaction extends AbstractResponseModel
     {
         return $this->providerCode;
     }
-
     /**
      * @param string $providerCode
      */
@@ -309,5 +308,6 @@ class Transaction extends AbstractResponseModel
     {
         $this->providerCode = $providerCode;
     }
+
 
 }

@@ -80,9 +80,12 @@ class Connection implements ConnectionInterface
      */
     public function post($path, array $payload )
     {
+        // echo "Path: ".$path;
         $this->setDefaultHeader();
         $resourceEndpoint = $this->getEndpoint() . $path;
         $payload = json_encode($payload);
+        // print_r($payload);
+        // file_put_contents(TL_ROOT ."/var/logs/post.log", "post(): ". print_r($payload,true) ."\r\n", FILE_APPEND | LOCK_EX);
         $this->curl->post($resourceEndpoint, $payload);
 
         if(!$this->curl->isSuccess()) {
@@ -94,6 +97,7 @@ class Connection implements ConnectionInterface
             $requestException->setRequestHeaders($this->curl->request_headers);
             $requestException->setResponseHeader($this->curl->response_headers);
             $requestException->setResponseBody($this->curl->response);
+
             throw $requestException;
         }
 
@@ -166,7 +170,7 @@ class Connection implements ConnectionInterface
         $url = preg_replace('/(%5B[0-9]%5D)/', '', $url);
 
         $this->setDefaultHeader();
-        $this->curl->get($url, array());
+        $this->curl->get($url, null);
         if(!$this->curl->isSuccess()){
             $requestException = new PayengineResourceException(
                 $this->curl->error_message, $this->curl->http_status_code

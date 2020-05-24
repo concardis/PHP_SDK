@@ -1,12 +1,15 @@
 <?php
+
 namespace Concardis\Payengine\Lib;
 
 use Concardis\Payengine\Lib\Internal\Config\MerchantConfiguration;
 use Concardis\Payengine\Lib\Internal\Connection\Connection;
 use Concardis\Payengine\Lib\Internal\Connection\ConnectionInterface;
+use Concardis\Payengine\Lib\Internal\Resource\BrowserInfos;
 use Concardis\Payengine\Lib\Internal\Resource\Customers;
 use Concardis\Payengine\Lib\Internal\Resource\PaymentInstruments;
 use Concardis\Payengine\Lib\Internal\Resource\Orders;
+
 
 /**
  * Class PayEngine
@@ -76,5 +79,15 @@ class Payengine
      */
     public function orders($orderId = null){
         return new Orders($this->connection, $orderId, null);
+    }
+
+
+    /**
+     * @param $orderId
+     *
+     * @return BrowserInfo
+     */
+    public function browserinfos(){
+        return new BrowserInfos($this->connection, null, null);
     }
 }
